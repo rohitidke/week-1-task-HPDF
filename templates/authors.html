@@ -1,0 +1,27 @@
+<!-- movies.html -->
+
+<html>
+<body>
+  <h1>Authors</h1>
+  {% for author in authors %}
+    <div>Author {{author.id}} is {{author.name}}</div>
+  {% endfor %}
+
+  <h1>Posts</h1>
+{% for post in posts %}
+<div>Post {{post.id}} is {{post.body}}</div>
+{% endfor %}
+
+<h1>Count of posts</h1>
+
+{% for author in authors %}
+ {% set count = [0] %}
+  {% for post in posts %}
+    {% if post.userId == author.id %}
+      {% if count.append(count.pop() + 1) %}{% endif %}
+    {% endif %}
+  {% endfor %}
+<div>Author {{author.name}} written {{count}} posts</div>
+{% endfor %}
+</body>
+</html>
