@@ -5,7 +5,8 @@ app=Flask(__name__)
 @app.route('/setcookie')
 def setcookie():
    resp = make_response(render_template('readcookie.html'))
-   resp.set_cookie('name','Rohit','age','21')
+   resp.set_cookie('name','Rohit')
+   resp.set_cookie('age','21')
    return resp
 
 @app.route('/getcookie')
