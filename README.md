@@ -38,7 +38,6 @@ Steps for execution:
 can use the response at http://httpbin.org/deny if needed)</br></br>
 Steps for execution:
 * Go to browser and open http://127.0.0.1:5000/robots.txt and response at http://httpbin.org/deny will be displayed.</br>
-Note: You should internet connection for this task.</br>
 
 6) Render an HTML page at http://localhost:8080/html​ or an image at
 http://localhost:8080/image​.</br></br>
@@ -52,4 +51,4 @@ stdout.</br></br>
 Steps for execution:
 * Go to browser and open http://127.0.0.1:5000/input.</br>
 * There will be one text box. Enter your data in it and hit enter.</br>
-* Then your data will be displayed on endpoint http://127.0.0.1:5000/display
+* Then your data will be displayed on terminal like cmd or powershell.
