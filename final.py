@@ -1,5 +1,5 @@
+import requests,sys
 from flask import Flask,render_template,request,make_response,redirect
-import requests
 
 app = Flask(__name__)
 
@@ -18,8 +18,12 @@ def get_users():
 @app.route('/setcookie')
 def setcookie():
    resp = make_response(render_template('readcookie.html'))
-   resp.set_cookie('name','Rohit')
-   resp.set_cookie('age','21')
+   if 'name' not in request.cookies:
+       resp.set_cookie('name','Rohit')
+   if 'age' not in request.cookies:
+       resp.set_cookie('age','21')
+   else:
+       resp=make_response('Cookie is already set.')
    return resp
 
 @app.route('/getcookie')
@@ -30,7 +34,7 @@ def getcookie():
 
 @app.route('/robots.txt')
 def view_deny_page():
-    return redirect("http://httpbin.org/deny")
+    return send_file('robots.txt')
 
 @app.route('/html')
 def render_html():
@@ -48,4 +52,5 @@ def index():
 def display():
    if request.method == 'POST':
        user = request.form['nm']
-   return user
+       print(user, file=sys.stdout)
+   return 'Output is on terminal'
